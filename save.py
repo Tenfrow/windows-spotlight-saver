@@ -7,8 +7,11 @@ from time import time
 
 source_path = os.path.join(os.getenv('LOCALAPPDATA'),
                            r'Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets')
-dest_path = sys.argv[1] if len(sys.argv) > 1 else os.path.dirname(os.path.realpath(__file__))
 min_size = 200_000
+
+dest_path = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(os.path.realpath(__file__)), 'spotlight')
+if not os.path.exists(dest_path):
+    os.mkdir(dest_path)
 
 
 def main():
