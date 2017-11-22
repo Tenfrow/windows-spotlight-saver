@@ -6,7 +6,6 @@ from time import time
 
 source_path = os.path.join(os.getenv('LOCALAPPDATA'),
                            r'Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets')
-min_size = 200_000
 
 dest_path = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(os.path.realpath(__file__)), 'spotlight')
 
@@ -36,7 +35,7 @@ def filter_img_items(items):
         with Image.open(full_path(filename)) as img:
             return (1920, 1080) == img.size
 
-    return [i for i in items if os.stat(os.path.join(source_path, i)).st_size >= min_size and is_fullhd(i)]
+    return [i for i in items if is_fullhd(i)]
 
 
 def save_as_jpg(items):
