@@ -1,8 +1,9 @@
 import os
 import sys
-from PIL import Image
 from shutil import copyfile
 from time import time
+
+from PIL import Image
 
 SOURCE_PATH = os.path.join(os.getenv('LOCALAPPDATA'),
                            r'Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets')
